@@ -29,7 +29,7 @@ export default function Home() {
             <a href="#portfolio" className={` ${kanit.className}`} style={{ fontSize: '20px', borderRadius: '10px', color: 'white', background: '#197bbd', paddingTop: '5px', paddingBottom: '5px', paddingLeft: '50px', paddingRight: '50px', border: '0',marginTop:'5px' }}>ชมผลงาน</a>
           </div>
           <div style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center',marginLeft:'100px' }}>
-            <img style={{ width: '450px', height: 'auto', margin: '0 auto', display: 'table',borderRadius:'10%',opacity:'0.7' }} src="/img/man.png" alt="" />
+            <img style={{ width: '450px', height: 'auto', margin: '0 auto', display: 'table',borderRadius:'10%',opacity:'0.7' }} src="https://i.postimg.cc/8cr9CW6V/240055929-4292983747462383-9215734184391380037-n.jpg" alt="" />
           </div>
         </div>
         <AboutPage />
