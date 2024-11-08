@@ -37,10 +37,10 @@ export default function Home() {
         <Portfolio />
       </div>
       <div style={{position:'fixed',bottom:'20px',right:'35px'}}>
-        <Link href="" style={{display:'block',marginBottom:'5px'}}>
+        <Link href="https://www.instagram.com/jrpezy.24/" style={{display:'block',marginBottom:'5px'}}>
           <img src="/img/instagram.png" style={{width:'50px'}} alt="" />
         </Link>
-        <Link href="">
+        <Link href="https://www.facebook.com/jirapat.yaovalux.7/">
           <img src="/img/communication.png" style={{width:'50px'}} alt="" />
         </Link>
       </div>
