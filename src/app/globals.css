@@ -1,0 +1,537 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0D1117;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+}
+
+body {
+  color: var(--foreground);
+/* Set a fallback dark color */
+background: #011122;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* Overlay using ::before pseudo-element */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1; /* Ensure it's behind the main content */
+  
+  /* Radial gradient for a soft dark effect */
+  background: radial-gradient(
+      circle at 50% 50%,
+      rgb(2, 18, 37),   /* Dark center */
+      rgba(5, 15, 10, 1) 50%, /* Smooth transition */
+      rgba(0, 10, 5, 1) 90%   /* Edge fade */
+    ),
+    linear-gradient(
+      rgba(10, 20, 15, 0.5),
+      rgba(0, 10, 5, 0.9)
+    );
+
+  /* Apply blur to the overlay */
+  filter: blur(20px); /* Adjust blur amount as needed */
+  
+  /* Opacity to make the background effect subtle */
+  opacity: 0.7;
+}
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+  height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem; /* Equivalent to max-w-7xl in Tailwind */
+  padding-left: 1rem; /* Equivalent to px-4 in Tailwind */
+  padding-right: 1rem;
+}
+
+/* Small screens (sm breakpoint in Tailwind) */
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem; /* Equivalent to sm:px-6 */
+    padding-right: 1.5rem;
+  }
+}
+
+/* Large screens (lg breakpoint in Tailwind) */
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 0rem; /* Equivalent to lg:px-8 */
+    padding-right: 2rem;
+  }
+}
+
+
+/* Inner content scaling */
+.inner-content {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  /* transform: scale(0.5); */
+  /* padding-left: 50px; */
+}
+
+/* Vertical bar with "CONTACT ME" */
+.vertical-bar {
+  position: relative;
+  width: 1rem;
+  height: 100%;
+  transform: rotate(90deg);
+  margin-top: -2rem;
+}
+
+.contact-me {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #C8C8C8;
+  margin-top: 24rem;
+  transform: rotate(180deg);
+}
+
+.contact-me p {
+  font-size: 1.25rem;
+  padding-left: 4px;
+}
+
+.contact-line {
+  width: 6.625rem;
+  height: 1px;
+  background-color: #C8C8C8;
+  margin-left: 0.5rem;
+}
+
+/* Profile description */
+.profile-content {
+  margin-left: 1.875rem;
+  width: 30.375rem;
+  color: #B0B0B0;
+}
+
+.profile-title {
+  font-size: 5rem;
+  color: #197BBD;
+  font-weight: 900;
+}
+
+.profile-text {
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 25px;
+}
+
+.profile-text .highlight {
+  text-decoration: underline;
+  text-decoration-color: #C8C8C8;
+}
+
+/* Timeline section */
+.timeline-item {
+  width: 30.375rem;
+  height: 6.25rem;
+  border-radius: 0.34375rem;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  background-size: cover;
+}
+
+.timeline-item:nth-child(1) {
+  background-image: url('/img/timeline-bg-1.png');
+}
+.timeline-item:nth-child(2) {
+  background-image: url('/img/timeline-bg-2.png');
+}
+.timeline-item:nth-child(3) {
+  background-image: url('/img/timeline-bg-3.png');
+}
+
+.timeline-content {
+  height: 80%;
+  width: 17.1875rem;
+  display: flex;
+  margin-top: -22px;
+  padding-left: 10px;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  background: rgba(33, 166, 255,0.2);
+  border-radius: 5.36865px 24.3455px 24.3455px 24.3455px;
+}
+
+.timeline-text {
+  width: 13rem;
+  /* padding-right: 0.5px; */
+  color: white;
+}
+
+.timeline-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.timeline-subtitle {
+  font-size: 0.625rem;
+  font-weight: small;
+}
+
+.timeline-icon {
+  width: 2rem;
+  height: 2rem;
+  margin-top: -25px;
+  margin-left: -35px;
+}
+
+.timeline-year {
+  width: 12.125rem;
+  text-align: right;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+/* From https://css.glass */
+/* background: rgba(0, 255, 102, 0.25);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(4.1px);
+-webkit-backdrop-filter: blur(4.1px); */
+  border-bottom-left-radius:15px ;
+  border-bottom-right-radius:15px ;
+
+}
+
+/* Logo */
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #197bbd; /* Green color for logo */
+  text-decoration: none;
+}
+
+/* Navbar links */
+.navbar-menu {
+  display: flex;
+  gap: 3.5rem;
+}
+
+.navbar-menu a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.navbar-menu a:hover {
+  color: #fff;
+}
+
+/* Call-to-action button */
+.cta-button {
+  background-color: #ffffff71;
+  /* opacity: 0.7; */
+  backdrop-filter: blur(50px);
+  color: #000;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #00cc55;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none; /* Hide the navbar links on mobile */
+  }
+
+  .navbar-toggle {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(to right, #0e141b 50%, #02c39a 50%);
+  color: white;
+  height: 100vh;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.text-content {
+  max-width: 500px;
+}
+
+.text-content h2 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+.text-content h2 span {
+  color: #02c39a;
+}
+
+.text-content p {
+  margin-top: 1rem;
+  color: #b0b0b0;
+}
+
+.portfolio-btn {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background-color: #0000002a;
+  color: #0e141b;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.portfolio-btn:hover {
+  background-color: #028f6b;
+}
+
+/* About Section */
+.about-section {
+  padding: 4rem 2rem;
+  background-color: #0e141b;
+  color: white;
+}
+
+.about-content {
+  text-align: center;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 0;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat h3 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.stat p {
+  color: #b0b0b0;
+}
+
+/* Services Section */
+.services-section {
+  padding: 4rem 2rem;
+  background-color: #02c39a;
+  color: #0e141b;
+  text-align: center;
+}
+
+.service-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.service {
+  width: 30%;
+}
+
+.service h3 {
+  margin: 0;
+}
+
+.service p {
+  color: #0e141b;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image-container {
+    margin-top: 2rem;
+  }
+
+  .service-list {
+    flex-direction: column;
+  }
+
+  .service {
+    margin-bottom: 1rem;
+  }
+
+  .custom-grid {
+    grid-template-columns: 1fr !important; /* Single column for mobile screens */
+  }
+  
+}
+
+@media (max-width: 768px) {
+  .custom-grid {
+    grid-template-columns: 1fr; /* Single column for mobile screens */
+  }
+}
+
+
+.custom-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+  gap: 0.5rem; /* Equivalent to gap-2 in Tailwind */
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-white {
+  color: white;
+}
+
+.portfolio {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-size: 25px;
+}
+
+.footer {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-size: 25px;
+  background-color: #0E141B;
+}
+
+
+.myskill-title {
+  font-size: 50px;
+  font-weight: bolder;
+}
+
+
+
+/* Container for the technology grid */
+.tech-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  background-color: none; /* Dark background similar to the image */
+  max-width: 740px;
+  margin: auto;
+  margin-right: 100px;
+}
+/* Each technology item */
+.tech-item {
+  background: rgba(255, 255, 255, 0.082); /* Dark gray background for each item */
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+  backdrop-filter: blur(30px);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Hover effect on the tech-item */
+.tech-item:hover {
+  transform: scale(1.05);
+}
+
+/* Smooth transition for icon color change */
+.tech-item .icon {
+  transition: color 0.3s ease;
+}
+
+/* Change color on hover */
+.tech-item:hover .icon {
+  color: #197BBD;
+}
+
+/* Icon styling */
+.tech-item img {
+  max-width: 60px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+/* Text styling */
+.tech-item p {
+  color: #fff; /* White text */
+  font-weight: bold;
+  margin: 0;
+}
+
+
+.text-gradient {  
+  background-image: linear-gradient(to right, #0c4b75, #1b99ec);  
+  -webkit-background-clip: text;  
+  -webkit-text-fill-color: transparent;  
+}

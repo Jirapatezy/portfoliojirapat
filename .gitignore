@@ -1,0 +1,25 @@
+# Node.js
+node_modules/
+
+# Next.js build output
+.next/
+
+# Local environment variables
+.env*
+.env.local
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore coverage reports (e.g., from testing)
+coverage/
+
+# Ignore package-lock.json (if using Yarn instead of npm)
+package-lock.json
+
+# Ignore any temporary files
+*.swp
